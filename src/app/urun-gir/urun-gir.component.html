@@ -1,0 +1,70 @@
+<div *ngIf="!isUpdate" class="container m-4">
+    <form #myForm="ngForm" (ngSubmit)="urunEkle(myForm.value)">
+      <div class="form-group">
+        <label class="form-label">Urun Adı</label>
+        <input type="text" class="form-control" name="urun_adi" [(ngModel)]="urun_adi">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Fiyat</label>
+        <input type="text" class="form-control" name="fiyat" [(ngModel)]="fiyat">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Kategori</label>
+        <input type="text" class="form-control" name="kategori" [(ngModel)]="kategori">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Barkod</label>
+        <input type="text" class="form-control" name="barkod" [(ngModel)]="barkod">
+      </div>
+      <button type="submit" class="btn btn-primary m-3 ">Submit</button>
+    </form>
+  </div>
+  
+  <div *ngIf="isUpdate" class="container m-4">
+    <form #myForm="ngForm" (ngSubmit)="urunGuncelle(urunId, myForm.value)">
+      <div class="form-group">
+        <label class="form-label">Urun Adı</label>
+        <input type="text" class="form-control" name="urun_adi" [(ngModel)]="urun_adi">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Fiyat</label>
+        <input type="text" class="form-control" name="fiyat" [(ngModel)]="fiyat">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Kategori</label>
+        <input type="text" class="form-control" name="kategori" [(ngModel)]="kategori">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Barkod</label>
+        <input type="text" class="form-control" name="barkod" [(ngModel)]="barkod">
+      </div>
+      <button type="submit" class="btn btn-primary m-3 ">Update</button>
+    </form>
+  </div>
+  
+  <table *ngIf="urunler.length > 0; else noData" class="table table-striped m-4">
+    <thead>
+      <th>Urun Adı</th>
+      <th>Fiyat</th>
+      <th>Kategori</th>
+      <th class="custom-class" >Barkod</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of urunler; let i = index">
+        <td>{{ item.urun_adi }}</td>
+        <td>{{ item.fiyat }}<i>₺</i></td>
+        <td>{{ item.kategori }}</td>
+        <td class="custom-class">{{ item.barkod }}</td>
+        <td><button type="button" class="btn btn-danger" (click)="urunSil(item)">
+            Sil
+          </button></td>
+        <td><button class="btn btn-info" (click)="urunSec(item)">Güncelle</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #noData>
+    <p class="p-3 mb-2 bg-warning text-dark fs-1"> Hey, stokta hiç ürün kalmadı, bişeyler mi alsak 😀! </p>
+  </ng-template>
+  <!-- <app-deneme></app-deneme> -->
