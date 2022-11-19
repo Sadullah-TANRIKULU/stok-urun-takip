@@ -8,34 +8,44 @@ import { InspectionApiService } from '../inspection-api.service';
 })
 export class BarkodOkumaComponent implements OnInit {
 
-   barkod: string ='';
-   sepetUrun: any[] = [];
-   toplam: number = 0;
-   fiyat: number = 0;
+  barkod: string = '';
+  sepetUrun: any[] = [];
+  toplam: number = 0;
+  fiyat: number = 0;
+  item1: number = 0;
+  adet: number = 0;
   constructor(private service: InspectionApiService) {
     this.service.getSepet().subscribe(res => {
       this.sepetUrun = res.data;
       console.log(this.sepetUrun);
       this.topla();
-      
-    })
-   }
+      this.adetHesapla();
 
-   topla() {
+    })
+  }
+
+  topla() {
     this.toplam = 0;
     this.sepetUrun.forEach((item) => {
       this.toplam += Number(item.fiyat);
     })
-   }
+  }
+  adetHesapla() {
+    this.service.getUrunler().subscribe(response => {
+      this.sepetUrun = response.data;
+      this.adet = this.sepetUrun.length;
+    })
+  }
 
   ngOnInit(): void {
   }
-  urunEkle(urun: string){
+  urunEkle(urun: string) {
     console.log(urun);
-    this.service.urunEkle(urun).subscribe(res =>{
+    this.service.urunEkle(urun).subscribe(res => {
       console.log(res);
       this.sepetUrun = res.data;
       this.topla();
+      this.adetHesapla();
     })
 
   }
@@ -43,7 +53,15 @@ export class BarkodOkumaComponent implements OnInit {
     this.service.sepetSil(item.uid).subscribe(response => {
       this.sepetUrun = response.data;
       this.topla();
+      this.adetHesapla();
     });
   }
-  
+  siparisTamamla() {
+    this.service.siparisTamamla().subscribe(response => {
+      this.sepetUrun = response.data;
+      this.topla();
+      this.adetHesapla();
+    })
+  }
+
 }

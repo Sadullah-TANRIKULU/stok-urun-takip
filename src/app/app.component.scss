@@ -1,11 +1,17 @@
 .section {
     height: 6rem;
-    border: solid 2px red;
-    border-radius: 20px;
-    background-color: aquamarine;
+    border-radius: 10px;
+    background-color: #157347;
 }
 
 .section h1 a {
     text-decoration: none;
-    color: black;
+}
+
+.red {
+    color: #ff0000;
+}
+
+.white {
+    color: #fff;
 }

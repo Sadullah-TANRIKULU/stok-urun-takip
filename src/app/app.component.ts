@@ -8,8 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  titleColor: boolean = true;
+
   constructor(
     
   ) {  }
+
+  toggleTitle() {
+    if (this.titleColor) {
+      this.titleColor = false;
+    } else {
+      this.titleColor = true;
+    }
+    
+  }
 
 }

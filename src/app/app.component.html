@@ -1,8 +1,8 @@
 <section class="section d-flex justify-content-evenly align-items-center m-4">
-    <h1 role="button"><a [title]="' urunGir'" [routerLink]="['/urunGir']">
+    <h1 role="button"><a [title]="' urunGir'" [routerLink]="['/urunGir']" (click)="toggleTitle()" [className]="titleColor === true ? 'red' : 'white'">
             Ürün Gir/Sil
         </a></h1>
-    <h1 role="button"><a [title]="' barkodOkuma'" [routerLink]="['/barkodOkuma']">
+    <h1 role="button"><a [title]="' barkodOkuma'" [routerLink]="['/barkodOkuma']" (click)="toggleTitle()" [className]="titleColor === true ? 'white' : 'red'">
             Satış
         </a></h1>
 </section>

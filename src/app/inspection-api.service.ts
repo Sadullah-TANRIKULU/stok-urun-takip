@@ -35,6 +35,8 @@ export class InspectionApiService {
   urunEkle(urun: any): Observable<any> {  
     return this.http.post<any>(this.satisAPIUrl + `satis/urunEkle`, urun);
   }
-
+  siparisTamamla(): Observable<any> {
+    return this.http.delete<any>(this.satisAPIUrl + `satis/sepetId`);
+  }
 
 }

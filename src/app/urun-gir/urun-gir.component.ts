@@ -18,7 +18,7 @@ export class UrunGirComponent {
   formObj: any;
   editedNewData: any;
   urunler: any[] = [];
-
+  adet: number = 0;
   constructor(
     private service: InspectionApiService,
   ) {
@@ -27,6 +27,7 @@ export class UrunGirComponent {
       console.log(this.urunler);
     });
     this.urunlerGetir();
+    this.adetHesapla();
   }
 
   urunlerGetir() {
@@ -35,12 +36,19 @@ export class UrunGirComponent {
       // this.urunler = (res.data).sort((x: any, y: any) => {(x.kategori).localeCompare(y.kategori) });
     });
   }
+  adetHesapla() {
+    this.service.getUrunler().subscribe(response => {
+      this.urunler = response.data;
+      this.adet = this.urunler.length;
+    })
+  }
 
 
   urunEkle(formObj: NgForm) {
     this.service.urunKaydet(formObj).subscribe(response => {
       this.formObj = response.data;
       this.urunlerGetir();
+      this.adetHesapla();
     });
 
   }
@@ -75,6 +83,7 @@ export class UrunGirComponent {
     this.service.urunSil(item.id).subscribe(response => {
       console.log(response);
       this.urunlerGetir();
+      this.adetHesapla();
     });
   }
 
