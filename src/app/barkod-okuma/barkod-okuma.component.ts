@@ -31,7 +31,7 @@ export class BarkodOkumaComponent implements OnInit {
     })
   }
   adetHesapla() {
-    this.service.getUrunler().subscribe(response => {
+    this.service.getSepet().subscribe(response => {
       this.sepetUrun = response.data;
       this.adet = this.sepetUrun.length;
     })
@@ -50,15 +50,16 @@ export class BarkodOkumaComponent implements OnInit {
 
   }
   sepetSil(item: any) {
+    console.log(item);
     this.service.sepetSil(item.uid).subscribe(response => {
       this.sepetUrun = response.data;
       this.topla();
       this.adetHesapla();
     });
   }
-  siparisTamamla() {
-    this.service.siparisTamamla().subscribe(response => {
-      this.sepetUrun = response.data;
+  siparisTamamla(id: number) {
+    this.service.siparisTamamla(id).subscribe(response => {
+      this.sepetUrun = [];
       this.topla();
       this.adetHesapla();
     })

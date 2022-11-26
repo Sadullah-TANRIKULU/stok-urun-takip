@@ -17,26 +17,31 @@ export class InspectionApiService {
   getSepet(): Observable<any> { 
     return this.http.get<any>(this.satisAPIUrl + `satis/sepet`);
   };
-
+  getRapor1(): Observable<any> { 
+    return this.http.get<any>(this.satisAPIUrl + `satis/rapor1`);
+  };
+  getRapor2(): Observable<any> { 
+    return this.http.get<any>(this.satisAPIUrl + `satis/rapor2`);
+  };
+  getRapor3(): Observable<any> { 
+    return this.http.get<any>(this.satisAPIUrl + `satis/rapor3`);
+  };
   urunKaydet(body: any): Observable<any> { 
     return this.http.post<any>(this.satisAPIUrl + `satis/urunKaydet`, body);
   };
-
   urunGuncelle(id: number, body: any): Observable<any> { 
     return this.http.put<any>(this.satisAPIUrl + `satis/urunGuncelle/` + id, body);
   };
-
   urunSil(id: number): Observable<any> {
     return this.http.delete<any>(this.satisAPIUrl + `satis/urunSil/${id}`);
-  }
+  };
   sepetSil(id: number): Observable<any> {
-    return this.http.delete<any>(this.satisAPIUrl + `satis/sepetSil/${id}`);
-  }
+    return this.http.delete<any>(this.satisAPIUrl + `satis/sepetId/${id}`);
+  };
   urunEkle(urun: any): Observable<any> {  
     return this.http.post<any>(this.satisAPIUrl + `satis/urunEkle`, urun);
-  }
-  siparisTamamla(): Observable<any> {
-    return this.http.delete<any>(this.satisAPIUrl + `satis/sepetId`);
-  }
-
+  };
+  siparisTamamla(id: number): Observable<any> {
+    return this.http.put<any>(this.satisAPIUrl + `satis/siparisVer/${id}`, {});
+  };
 }

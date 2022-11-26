@@ -1,45 +1,46 @@
-<div  class="container m-4">
-    <form #myForm="ngForm" (ngSubmit)="urunEkle(myForm.value)">
-      <div class="form-group">
-        <label class="form-label">Barkod</label>
-        <input type="text" class="form-control" name="barkod" [(ngModel)]="barkod">
-      </div>
-      <div class="d-flex justify-content-around form-group">
+<div class="container m-4">
+  <form #myForm="ngForm" (ngSubmit)="urunEkle(myForm.value)">
+    <div class="form-group">
+      <label class="form-label">Barkod</label>
+      <input type="text" class="form-control" name="barkod" [(ngModel)]="barkod">
+    </div>
+    <div class="d-flex justify-content-around form-group">
       <button type="submit" class="btn btn-primary m-3 ">Ürün Ekle</button>
-      <p class="adet border border-2 rounded m-3 p-1" >Stok Ürün Adedi : {{ adet }}</p>
-      </div>
-    </form>
-  </div>
+      <p class="adet border border-2 rounded m-3 p-1">Stok Ürün Adedi : {{ adet }}</p>
+    </div>
+  </form>
+</div>
 
-  
+
 <table *ngIf="sepetUrun.length > 0; else noData" class="table table-striped m-4">
-    <thead>
-      <th>Urun Adı</th>
-      <th>Fiyat</th>
-      <th>Kategori</th>
-      <th></th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of sepetUrun; let i = index">
-        <td>{{ item.urun_adi }}</td>
-        <td>{{ item.fiyat }}<i>₺</i></td>
-        <td>{{ item.kategori }}</td>
-        <td><button type="button" class="btn btn-danger" (click)="sepetSil(item)">
-            Sil
-          </button></td>
-      </tr>
-      <tr>
-        <td>Toplam</td>
-        <td>{{ toplam }}</td>
-        <td></td>
-        <td><button type="button" class="btn btn-success" (click)="siparisTamamla()">
+  <thead>
+    <th>Urun Adı</th>
+    <th>Fiyat</th>
+    <th >Kategori</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of sepetUrun; let i = index">
+      <td>{{ item.urun_adi }}</td>
+      <td>{{ item.fiyat }}<i>₺</i></td>
+      <td >{{ item.kategori }}</td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="sepetSil(item)">
+          Sil
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td>Toplam</td>
+      <td>{{ toplam }}</td>
+      <td></td>
+      <td>
+        <button type="button" class="btn btn-success" (click)="siparisTamamla(1)">
           Sipariş Tamamla
-        </button></td>
-      </tr>
-    </tbody>
-  </table>
-  <ng-template #noData>
-    <p class="p-3 mb-2 bg-warning text-dark fs-1"> Sepet doluyoooor 😀! </p>
-  </ng-template>
-  
-  
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #noData>
+  <p class="p-3 mb-2 bg-warning text-dark fs-1"> Sepet doluyoooor 😀! </p>
+</ng-template>
