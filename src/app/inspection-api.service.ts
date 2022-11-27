@@ -11,20 +11,9 @@ export class InspectionApiService {
 
   constructor(private http: HttpClient) { }  
 
+  // ÜRÜN GİR/SİL METOTLARI
   getUrunler(): Observable<any> { 
     return this.http.get<any>(this.satisAPIUrl + `satis/urunler`);
-  };
-  getSepet(): Observable<any> { 
-    return this.http.get<any>(this.satisAPIUrl + `satis/sepet`);
-  };
-  getRapor1(): Observable<any> { 
-    return this.http.get<any>(this.satisAPIUrl + `satis/rapor1`);
-  };
-  getRapor2(): Observable<any> { 
-    return this.http.get<any>(this.satisAPIUrl + `satis/rapor2`);
-  };
-  getRapor3(): Observable<any> { 
-    return this.http.get<any>(this.satisAPIUrl + `satis/rapor3`);
   };
   urunKaydet(body: any): Observable<any> { 
     return this.http.post<any>(this.satisAPIUrl + `satis/urunKaydet`, body);
@@ -35,6 +24,11 @@ export class InspectionApiService {
   urunSil(id: number): Observable<any> {
     return this.http.delete<any>(this.satisAPIUrl + `satis/urunSil/${id}`);
   };
+
+  // BARKOD OKUTMA METOTLARI
+  getSepet(): Observable<any> { 
+    return this.http.get<any>(this.satisAPIUrl + `satis/sepet`);
+  };
   sepetSil(id: number): Observable<any> {
     return this.http.delete<any>(this.satisAPIUrl + `satis/sepetId/${id}`);
   };
@@ -43,5 +37,13 @@ export class InspectionApiService {
   };
   siparisTamamla(id: number): Observable<any> {
     return this.http.put<any>(this.satisAPIUrl + `satis/siparisVer/${id}`, {});
+  };
+
+  // RAPORLAMA METOTLARI
+  getRapor1(): Observable<any> { 
+    return this.http.get<any>(this.satisAPIUrl + `satis/rapor1`);
+  };
+  getRapor2(): Observable<any> { 
+    return this.http.get<any>(this.satisAPIUrl + `satis/rapor2`);
   };
 }

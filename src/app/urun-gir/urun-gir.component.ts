@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { InspectionApiService } from '../inspection-api.service';
 
@@ -8,6 +8,8 @@ import { InspectionApiService } from '../inspection-api.service';
   styleUrls: ['./urun-gir.component.scss']
 })
 export class UrunGirComponent {
+
+  
 
   urunId: any;
   urun_adi: string = '';
@@ -19,6 +21,11 @@ export class UrunGirComponent {
   editedNewData: any;
   urunler: any[] = [];
   adet: number = 0;
+
+  @Input() callbackFunction() {
+    console.log("Thanks Parent!");
+    
+  };
   constructor(
     private service: InspectionApiService,
   ) {
@@ -28,13 +35,18 @@ export class UrunGirComponent {
     });
     this.urunlerGetir();
     this.adetHesapla();
+    this.callbackFunction();
+    
   }
+  
+  
 
   urunlerGetir() {
     this.service.getUrunler().subscribe(res => {
       this.urunler = res.data;
       // this.urunler = (res.data).sort((x: any, y: any) => {(x.kategori).localeCompare(y.kategori) });
     });
+    
   }
   adetHesapla() {
     this.service.getUrunler().subscribe(response => {

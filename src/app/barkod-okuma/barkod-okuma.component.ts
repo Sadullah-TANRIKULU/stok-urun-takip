@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InspectionApiService } from '../inspection-api.service';
+import { RaporlamaComponent } from '../raporlama/raporlama.component';
 
 @Component({
   selector: 'app-barkod-okuma',
@@ -36,8 +37,9 @@ export class BarkodOkumaComponent implements OnInit {
       this.adet = this.sepetUrun.length;
     })
   }
-
+  
   ngOnInit(): void {
+
   }
   urunEkle(urun: string) {
     console.log(urun);
@@ -47,6 +49,7 @@ export class BarkodOkumaComponent implements OnInit {
       this.topla();
       this.adetHesapla();
     })
+    this.barkod = '';
 
   }
   sepetSil(item: any) {
