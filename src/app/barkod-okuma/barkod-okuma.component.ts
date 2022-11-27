@@ -18,7 +18,6 @@ export class BarkodOkumaComponent implements OnInit {
   constructor(private service: InspectionApiService) {
     this.service.getSepet().subscribe(res => {
       this.sepetUrun = res.data;
-      console.log(this.sepetUrun);
       this.topla();
       this.adetHesapla();
 
@@ -44,7 +43,6 @@ export class BarkodOkumaComponent implements OnInit {
   urunEkle(urun: string) {
     console.log(urun);
     this.service.urunEkle(urun).subscribe(res => {
-      console.log(res);
       this.sepetUrun = res.data;
       this.topla();
       this.adetHesapla();
@@ -53,7 +51,6 @@ export class BarkodOkumaComponent implements OnInit {
 
   }
   sepetSil(item: any) {
-    console.log(item);
     this.service.sepetSil(item.uid).subscribe(response => {
       this.sepetUrun = response.data;
       this.topla();

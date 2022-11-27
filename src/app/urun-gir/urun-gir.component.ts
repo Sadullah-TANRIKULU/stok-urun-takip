@@ -9,7 +9,7 @@ import { InspectionApiService } from '../inspection-api.service';
 })
 export class UrunGirComponent {
 
-  
+
 
   urunId: any;
   urun_adi: string = '';
@@ -21,11 +21,12 @@ export class UrunGirComponent {
   editedNewData: any;
   urunler: any[] = [];
   adet: number = 0;
+  
 
-  @Input() callbackFunction() {
-    console.log("Thanks Parent!");
-    
-  };
+  // @Input() callbackFunction() {
+  //   console.log("Thanks Parent!");
+
+  // };
   constructor(
     private service: InspectionApiService,
   ) {
@@ -35,18 +36,15 @@ export class UrunGirComponent {
     });
     this.urunlerGetir();
     this.adetHesapla();
-    this.callbackFunction();
-    
+    // this.callbackFunction();
   }
-  
-  
 
   urunlerGetir() {
     this.service.getUrunler().subscribe(res => {
       this.urunler = res.data;
       // this.urunler = (res.data).sort((x: any, y: any) => {(x.kategori).localeCompare(y.kategori) });
     });
-    
+
   }
   adetHesapla() {
     this.service.getUrunler().subscribe(response => {
@@ -57,11 +55,14 @@ export class UrunGirComponent {
 
 
   urunEkle(formObj: NgForm) {
+
     this.service.urunKaydet(formObj).subscribe(response => {
       this.formObj = response.data;
+      
       this.urunlerGetir();
       this.adetHesapla();
     });
+
 
   }
 
@@ -93,7 +94,6 @@ export class UrunGirComponent {
 
   urunSil(item: any) {
     this.service.urunSil(item.id).subscribe(response => {
-      console.log(response);
       this.urunlerGetir();
       this.adetHesapla();
     });

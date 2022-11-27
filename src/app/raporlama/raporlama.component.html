@@ -29,22 +29,13 @@
 <h3 class="text-center" >SİPARİŞ TOPLAMI RAPORU</h3>
 <table *ngIf="rapor2.length > 0; else noData" class="table table-striped m-4">
     <thead>
-      <th>Urun Adı</th>
-      <th>Fiyat</th>
-      <th>Kategori</th>
+      <th>Toplam</th>
       <!-- <th class="custom-class">Barkod</th> -->
     </thead>
     <tbody>
       <tr *ngFor="let item of rapor2; let i = index">
-        <td>{{ item.urun_adi }}</td>
-        <td>{{ item.fiyat }}<i>₺</i></td>
-        <td>{{ item.kategori }}</td>
+        <td>{{ item.toplam }}</td>
         <!-- <td class="custom-class">{{ item.barkod }}</td> -->
-      </tr>
-      <tr>
-        <td>Toplam</td>
-        <td>{{ toplam2 }}</td>
-        <td></td>
       </tr>
     </tbody>
   </table>

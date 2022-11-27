@@ -1,19 +1,20 @@
 <section class="section d-flex justify-content-evenly align-items-center m-4">
     <h1 role="button">
-        <a [title]="' urunGir'" [routerLink]="['/urunGir']" (click)="toggleTitle()" [className]="titleColor === 333 ? 'red' : 'white'">
+        <a [title]="' urunGir'" [routerLink]="['/urunGir']" (click)="toggleTitle1()" [className]=" titleColor === 3 ? 'red' : 'white'" >
             Ürün Gir/Sil
         </a>
     </h1>
     <h1 role="button">
-        <a [title]="' barkodOkuma'" [routerLink]="['/barkodOkuma']" (click)="toggleTitle()" [className]="titleColor === 444 ? 'red' : 'white'">
+        <a [title]="' barkodOkuma'" [routerLink]="['/barkodOkuma']" (click)="toggleTitle2()" [className]=" titleColor === 4 ? 'red' : 'white'">
             Satış
         </a>
     </h1>
     <h1 role="button">
-        <a [title]="' raporlama'" [routerLink]="['/raporlama']" (click)="toggleTitle()" [className]="titleColor === 555 ? 'red' : 'white'">
+        <a [title]="' raporlama'" [routerLink]="['/raporlama']" (click)="toggleTitle3()" [className]=" titleColor === 5 ? 'red' : 'white'">
             Raporlama
         </a>
     </h1>
 </section>
 
-<router-outlet (activate)="myCallbackFunction()"></router-outlet>
+<router-outlet ></router-outlet>
+<!-- <router-outlet (activate)="myCallbackFunction()"></router-outlet> -->

@@ -9,32 +9,30 @@ import { RaporlamaComponent } from './raporlama/raporlama.component';
 })
 export class AppComponent {
 
-  @ViewChild(RaporlamaComponent)
+  // @ViewChild(RaporlamaComponent)
 
-  titleColor: number = 0;
+  titleColor: number = 3;
 
   constructor(
-    private raporlamaComponent: RaporlamaComponent
+    // private raporlamaComponent: RaporlamaComponent
   ) { }
 
-  myCallbackFunction() {
-    console.log("Howdy Child!!");
-    this.raporlamaComponent.topla1();
-    this.raporlamaComponent.topla2();
+  // myCallbackFunction() {
+  //   console.log("Howdy Child!!");
+  //   this.raporlamaComponent.topla1();
+  //   this.raporlamaComponent.topla2();
 
-  }
+  // }
 
-  toggleTitle() {
-
-    if (this.titleColor) {
-      this.titleColor = 333;
+  toggleTitle1() {
+        this.titleColor = 3;
     }
-    else if (this.titleColor) {
-      this.titleColor = 444;
+  toggleTitle2() {
+        this.titleColor = 4;
     }
-    else if (this.titleColor) {
-      this.titleColor = 555;
+  toggleTitle3() {
+        this.titleColor = 5;
     }
 
-  }
+  
 }

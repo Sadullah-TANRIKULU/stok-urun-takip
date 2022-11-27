@@ -19,16 +19,17 @@ private service: InspectionApiService
     
     this.service.getRapor1().subscribe(response => {
       this.rapor1 = response.data;})
-      console.log(this.rapor1);
+      
     this.service.getRapor2().subscribe(response => {
       this.rapor2 = response.data;})
-      console.log(this.rapor2);
+      
       this.topla1();
       this.topla2();
   }
   // genel satış toplamı raporu
 
-  @Output() topla1() {
+  // @Output() 
+  topla1() {
     this.toplam1 = 0;
     this.rapor1.forEach((item) => {
       console.log(item);
@@ -39,7 +40,8 @@ private service: InspectionApiService
 
   // sipariş toplamı raporu
 
-  @Output() topla2() {
+  // @Output() 
+  topla2() {
     this.toplam2 = 0;
     this.rapor2.forEach((item) => {
       console.log(item);
