@@ -9,6 +9,7 @@ import { BarkodOkumaComponent } from './barkod-okuma/barkod-okuma.component';
 import { UrunGirComponent } from './urun-gir/urun-gir.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RaporlamaComponent } from './raporlama/raporlama.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { RaporlamaComponent } from './raporlama/raporlama.component';
     BarkodOkumaComponent,
     UrunGirComponent,
     RaporlamaComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import { RaporlamaComponent } from './raporlama/raporlama.component';
     ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [InspectionApiService, RaporlamaComponent],
+  providers: [InspectionApiService],  // RaporlamaComponent
   bootstrap: [AppComponent]
 })
 export class AppModule { }
