@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { RaporlamaComponent } from './raporlama/raporlama.component';
 
 
@@ -11,9 +12,10 @@ export class AppComponent {
 
   // @ViewChild(RaporlamaComponent)
 
-  titleColor: number = 3;
+  titleColor: number = 4;
 
   constructor(
+    private router: Router
     // private raporlamaComponent: RaporlamaComponent
   ) { }
 
@@ -32,6 +34,11 @@ export class AppComponent {
     }
   toggleTitle3() {
         this.titleColor = 5;
+    }
+
+    logOut() {
+      localStorage.removeItem('user-Data');
+      this.router.navigate(["/loginForm"]);
     }
 
   

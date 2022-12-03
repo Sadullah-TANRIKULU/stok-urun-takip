@@ -6,9 +6,9 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  email: string = 'sado@sado.com';
-  password: string = '1q!@2w3e4r';
-  userData: any = {};
+  email: string | null = 'sado@sado.com';
+  password: string | null = '1q!@2w3e4r';
+  authData: any = {};
 
   constructor(
     private router: Router
@@ -16,17 +16,16 @@ export class AuthService {
 
   isLoggedIn() {
 
-    this.userData = localStorage.getItem('user-Data');
-    // console.log({ email: this.email, password: this.password } = this.userData);
-    console.log(this.userData);
+    this.authData = JSON.parse(localStorage.getItem('user-Data') || '');
 
-    if (this.email === this.userData.email &&
-      this.password === this.userData.password) {
+    if (this.email === this.authData.email &&
+      this.password === this.authData.password) {
       return true;
     } else {
       this.router.navigate(["/loginForm"]);
       return false;
     }
   }
+
 
 }

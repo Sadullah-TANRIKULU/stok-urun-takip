@@ -39,8 +39,7 @@ export class LoginFormComponent {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
       localStorage.setItem("user-Data", JSON.stringify(this.loginForm.value));
-      this.router.navigate(["/urunGir"]);
+      this.router.navigate(["/barkodOkuma"]);
     }
   }
-
 }

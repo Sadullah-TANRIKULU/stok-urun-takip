@@ -1,19 +1,24 @@
 <section class="section d-flex justify-content-evenly align-items-center m-4">
-    <h1 role="button">
+    <h3 role="button">
         <a [title]="' urunGir'" [routerLink]="['/urunGir']" (click)="toggleTitle1()" [className]=" titleColor === 3 ? 'red' : 'white'" >
             Ürün Gir/Sil
         </a>
-    </h1>
-    <h1 role="button">
+    </h3>
+    <h3 role="button">
         <a [title]="' barkodOkuma'" [routerLink]="['/barkodOkuma']" (click)="toggleTitle2()" [className]=" titleColor === 4 ? 'red' : 'white'">
             Satış
         </a>
-    </h1>
-    <h1 role="button">
+    </h3>
+    <h3 role="button">
         <a [title]="' raporlama'" [routerLink]="['/raporlama']" (click)="toggleTitle3()" [className]=" titleColor === 5 ? 'red' : 'white'">
             Raporlama
         </a>
-    </h1>
+    </h3>
+    <h3 role="button">
+        <a [title]="' logout'" (click)="logOut()" class="white" >
+            Çıkış <img src="../assets/exit.png" alt="exit">
+        </a>
+    </h3>
 </section>
 
 <router-outlet ></router-outlet>

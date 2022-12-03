@@ -9,7 +9,7 @@ import { UrunGirComponent } from './urun-gir/urun-gir.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/loginForm', pathMatch : 'full' },
-  { path: '', component: LoginFormComponent },
+  { path: '', component: LoginFormComponent, canActivate: [AuthGuard] },
   { path: 'urunGir', component: UrunGirComponent, canActivate:[AuthGuard] },
   { path: 'raporlama', component: RaporlamaComponent, canActivate:[AuthGuard] },
   { path: 'barkodOkuma', component: BarkodOkumaComponent, canActivate:[AuthGuard] },
