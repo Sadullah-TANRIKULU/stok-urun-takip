@@ -4,26 +4,24 @@
       <form class="user-login" [formGroup]="loginForm" (ngSubmit)="onLogin()">
         <div class="row">
           <div class="col-md-12 roundedTextBox mb-3">
-            <label>Username</label>
+            <label>Kullanıcı Adı</label>
             <input type="email" class="form-control mb-2" id="inputEmail" formControlName="email" placeholder="Enter Email">
-            <!-- <small id="emailHelp" class="form-text text-muted ml-2">We'll never share your email with anyone else.</small> -->
             <div *ngIf="submitted && formControl.email.errors" class="text-danger">
-              <div *ngIf="formControl.email.errors.email">Email must be valid.</div>
-              <div *ngIf="formControl.email.errors.required">Email is required.</div>
+              <div *ngIf="formControl.email.errors.email">Email geçersiz.</div>
+              <div *ngIf="formControl.email.errors.required">Email gerekiyor.</div>
             </div>
           </div>
           <div class="col-md-12 roundedTextBox mb-3">
-            <label>Password</label>
+            <label>Şifre</label>
             <input type="password" class="form-control mb-2" id="inputPassword" formControlName="password" placeholder="Enter Password">
             <div *ngIf="submitted && formControl.password.errors" class="text-danger">
-              <div *ngIf="formControl.password.errors.required">Password is required.</div>
+              <div *ngIf="formControl.password.errors.required">Şifre gerekiyor.</div>
               <div *ngIf="formControl.password.errors.pattern">
-                <!-- <h3>Password must contain the following:</h3> -->
                 <ul>
-                  <li>Password should be alphanumeric</li>
-                  <li>A letter of the password should be capital</li>
-                  <li>Password must contain a special character (@, $, !, &, etc)</li>
-                  <li>Password length must be greater than 7 characters</li>
+                  <li>Şifre alfanümerik olmalıdır</li>
+                  <li>En az bir harfi büyükharf olmalıdır</li>
+                  <li>Şifre en az bir özel karakter içermelidir (@, $, !, & vs.)</li>
+                  <li>Şifre 7 karakterden uzun olmalıdır</li>
                 </ul>
               </div>
             </div>
@@ -31,7 +29,7 @@
         </div>
         <br>
         <div class="buttons text-center">
-          <button class="btn-customBlue mr-2" type="submit">Login</button>
+          <button class="btn btn-primary mr-2" type="submit">Giriş</button>
         </div>
       </form>
     </div>
