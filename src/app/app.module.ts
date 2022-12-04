@@ -9,6 +9,7 @@ import { UrunGirComponent } from './urun-gir/urun-gir.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RaporlamaComponent } from './raporlama/raporlama.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { DenemeComponent } from './deneme/deneme.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
     UrunGirComponent,
     RaporlamaComponent,
     LoginFormComponent,
+    DenemeComponent,
   ],
   imports: [
     BrowserModule,

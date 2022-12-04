@@ -21,19 +21,19 @@
   </ng-template>
 
 <!-- SİPARİŞ TOPLAMI RAPORU -->
-<!-- <h3 class="text-center" >SİPARİŞ TOPLAMI RAPORU</h3> -->
-<!-- <table *ngIf="rapor2.length > 0; else noData" class="table table-striped m-4"> -->
-    <!-- <thead> -->
-      <!-- <th>Toplam</th> -->
-      <!-- <th class="custom-class">Barkod</th> -->
-    <!-- </thead> -->
-    <!-- <tbody> -->
-      <!-- <tr *ngFor="let item of rapor2; let i = index"> -->
-        <!-- <td>{{ item.toplam }}</td> -->
-        <!-- <td class="custom-class">{{ item.barkod }}</td> -->
-      <!-- </tr> -->
-    <!-- </tbody> -->
-  <!-- </table> -->
-  <!-- <ng-template #noData> -->
-    <!-- <p class="p-3 mb-2 bg-warning text-dark fs-1"> Bugün mutlaka bişeyler satarız merak etme 😀! </p> -->
-  <!-- </ng-template> -->
+<h3 class="text-center" >SİPARİŞ TOPLAMI RAPORU</h3>
+<table *ngIf="rapor2.length > 0; else noData" class="table table-striped m-4">
+    <thead>
+      <th>Günlük Toplam Satışlar</th>
+      <th>İşlem Tarihi</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of rapor2; let i = index">
+        <td>{{ item.toplam }}<i>₺</i></td>
+        <td>{{ item.islem_tar }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #noData>
+    <p class="p-3 mb-2 bg-warning text-dark fs-1"> Bugün mutlaka bişeyler satarız merak etme 😀! </p>
+  </ng-template>
