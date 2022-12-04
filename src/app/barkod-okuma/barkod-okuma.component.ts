@@ -41,7 +41,6 @@ export class BarkodOkumaComponent implements OnInit {
 
   }
   urunEkle(urun: string) {
-    console.log(urun);
     this.service.urunEkle(urun).subscribe(res => {
       this.sepetUrun = res.data;
       this.topla();

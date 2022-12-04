@@ -8,7 +8,6 @@ import { UrunGirComponent } from './urun-gir/urun-gir.component';
 
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/loginForm', pathMatch : 'full' },
   { path: '', component: LoginFormComponent },
   { path: 'urunGir', component: UrunGirComponent, canActivate:[AuthGuard] },
   { path: 'raporlama', component: RaporlamaComponent, canActivate:[AuthGuard] },
@@ -22,4 +21,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-// https://seegatesite.com/login-form-angular-4-tutorial-for-beginner/

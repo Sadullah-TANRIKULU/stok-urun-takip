@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { InspectionApiService } from '../inspection-api.service';
 
 @Component({
@@ -16,21 +16,13 @@ private service: InspectionApiService
     
     this.service.getRapor1().subscribe(response => {
       this.rapor1 = response.data;
-      console.log(this.rapor1);
     })
       
     this.service.getRapor2().subscribe(response => {
       this.rapor2 = response.data;
-      console.log(this.rapor2);
     })
   }
-  // genel satış toplamı raporu
-
-  // @Output() 
-
-  // sipariş toplamı raporu
-
-  // @Output() 
+ 
   ngOnInit(): void {
 
   }

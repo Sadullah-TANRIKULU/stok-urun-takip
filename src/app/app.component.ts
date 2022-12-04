@@ -1,8 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { RaporlamaComponent } from './raporlama/raporlama.component';
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,21 +7,11 @@ import { RaporlamaComponent } from './raporlama/raporlama.component';
 })
 export class AppComponent {
 
-  // @ViewChild(RaporlamaComponent)
-
   titleColor: number = 4;
 
   constructor(
     private router: Router
-    // private raporlamaComponent: RaporlamaComponent
   ) { }
-
-  // myCallbackFunction() {
-  //   console.log("Howdy Child!!");
-  //   this.raporlamaComponent.topla1();
-  //   this.raporlamaComponent.topla2();
-
-  // }
 
   toggleTitle1() {
         this.titleColor = 3;
@@ -41,5 +28,4 @@ export class AppComponent {
       this.router.navigate(["/loginForm"]);
     }
 
-  
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { InspectionApiService } from '../inspection-api.service';
 
@@ -8,8 +8,6 @@ import { InspectionApiService } from '../inspection-api.service';
   styleUrls: ['./urun-gir.component.scss']
 })
 export class UrunGirComponent {
-
-
 
   urunId: any;
   urun_adi: string = '';
@@ -21,28 +19,20 @@ export class UrunGirComponent {
   editedNewData: any;
   urunler: any[] = [];
   adet: number = 0;
-  
 
-  // @Input() callbackFunction() {
-  //   console.log("Thanks Parent!");
-
-  // };
   constructor(
     private service: InspectionApiService,
   ) {
     this.service.getUrunler().subscribe(response => {
       this.urunler = response.data;
-      console.log(this.urunler);
     });
     this.urunlerGetir();
     this.adetHesapla();
-    // this.callbackFunction();
   }
 
   urunlerGetir() {
     this.service.getUrunler().subscribe(res => {
       this.urunler = res.data;
-      // this.urunler = (res.data).sort((x: any, y: any) => {(x.kategori).localeCompare(y.kategori) });
     });
 
   }
@@ -53,17 +43,13 @@ export class UrunGirComponent {
     })
   }
 
-
   urunEkle(formObj: NgForm) {
 
     this.service.urunKaydet(formObj).subscribe(response => {
       this.formObj = response.data;
-      
       this.urunlerGetir();
       this.adetHesapla();
     });
-
-
   }
 
   urunSec(item: any) {
@@ -78,20 +64,15 @@ export class UrunGirComponent {
   urunGuncelle(id: number, item: any) {
 
     this.service.urunGuncelle(id, item).subscribe(response => {
-      console.log(response);
       item.id = response.id;
       item.barkod = response.barkod;
       item.urun_adi = response.urun_adi;
       item.fiyat = response.fiyat;
       item.kategori = response.kategori;
       this.isUpdate = false;
-
       this.urunlerGetir();
     });
   }
-
-
-
   urunSil(item: any) {
     this.service.urunSil(item.id).subscribe(response => {
       this.urunlerGetir();

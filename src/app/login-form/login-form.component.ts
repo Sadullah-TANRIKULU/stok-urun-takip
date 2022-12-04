@@ -1,4 +1,4 @@
-import { Component, OnInit, VERSION } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -34,10 +34,8 @@ export class LoginFormComponent {
   }
 
   onLogin(): void {
-    // console.log(this.loginForm.value);
     this.submitted = true;
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
       localStorage.setItem("user-Data", JSON.stringify(this.loginForm.value));
       this.router.navigate(["/barkodOkuma"]);
     }
