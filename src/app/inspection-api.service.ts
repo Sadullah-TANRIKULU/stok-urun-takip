@@ -47,17 +47,4 @@ export class InspectionApiService {
     return this.http.get<any>(this.satisAPIUrl + `satis/rapor2`);
   };
 
-// NUMEROLOJİ
-inspectGet(body: any): Observable<any> { 
-  return this.http.post<any>(this.satisAPIUrl + `/numeroloji/userSave`, body);
-};
-inspectVal(): Observable<any> { 
-  return this.http.get<any>(this.satisAPIUrl + `/numeroloji/val`);
-};
-
-
-
-
-
-
 }
