@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  email: string | null = 'sado@sado.com';
-  password: string | null = '1q!@2w3e4r';
+  email: string | null = 'sado123@sado.com';
+  password: string | null = environment.PASSWORD;
   authData: any = {};
 
   constructor(
