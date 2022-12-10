@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from "../../environments/environment";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ import { environment } from "../../environments/environment";
 export class AuthService {
 
   email: string | null = 'sado123@sado.com';
-  password: string | null = environment.PASSWORD;
+  password: string | undefined = environment.PASSWORD;
   authData: any = {};
 
   constructor(
@@ -21,11 +21,15 @@ export class AuthService {
 
     if (this.email === this.authData.email &&
       this.password === this.authData.password) {
+        
       return true;
     } else {
       this.router.navigate(["/loginForm"]);
+      
       return false;
     }
+    
+    
   }
 
 
